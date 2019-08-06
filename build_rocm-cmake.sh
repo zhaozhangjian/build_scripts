@@ -6,6 +6,8 @@ then
     ROCM_ROOT_DIR="$1"
 fi
 
+[ -d "${ROCM_ROOT_DIR}/rocm-cmake/" ] || git clone --single-branch --recursive -b master https://github.com/RadeonOpenCompute/rocm-cmake ${ROCM_ROOT_DIR}/rocm-cmake
+
 echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
 cd ${ROCM_ROOT_DIR}/rocm-cmake/

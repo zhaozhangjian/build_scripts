@@ -9,3 +9,4 @@ export HSA_PATH=${ROCM_ROOT_DIR}/umd_lib/hsa
 export HIP_CLANG_PATH=${ROCM_ROOT_DIR}/umd_lib/bin
 export DEVICE_LIB_PATH=${ROCM_ROOT_DIR}/umd_lib/lib
 export LD_LIBRARY_PATH=${ROCM_ROOT_DIR}/umd_lib/lib64:${ROCM_ROOT_DIR}/umd_lib/lib:${ROCM_ROOT_DIR}/umd_lib/hsa/lib:$LD_LIBRARAY_PATH
+export PATH=${ROCM_ROOT_DIR}/umd_lib/bin:$PATH

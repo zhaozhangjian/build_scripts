@@ -6,6 +6,8 @@ then
     ROCM_ROOT_DIR="$1"
 fi
 
+[ -d "${ROCM_ROOT_DIR}/hcc/" ] || git clone --single-branch --recursive -b roc-2.6.x https://github.com/RadeonOpenCompute/hcc.git ${ROCM_ROOT_DIR}/hcc
+
 echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
 cd ${ROCM_ROOT_DIR}/hcc/
