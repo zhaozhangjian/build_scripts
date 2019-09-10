@@ -12,5 +12,5 @@ echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
 cd ${ROCM_ROOT_DIR}/hcc/
 mkdir -p build && cd build
-export LD_LIBRARY_PATH=${ROCM_ROOT_DIR}/umd_lib/lib/; cmake -DCMAKE_BUILD_TYPE=Release -DHSA_LIBRARY="${ROCM_ROOT_DIR}/umd_lib/lib/libhsa-runtime64.so" -DHSA_HEADER="${ROCM_ROOT_DIR}/umd_lib/include" -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib -DCPACK_PACKAGING_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib ..
+export LD_LIBRARY_PATH=${ROCM_ROOT_DIR}/umd_lib/lib/; cmake -DUSE_PROF_API=1 -DCMAKE_BUILD_TYPE=Release -DHSA_LIBRARY="${ROCM_ROOT_DIR}/umd_lib/lib/libhsa-runtime64.so" -DHSA_HEADER="${ROCM_ROOT_DIR}/umd_lib/include" -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib -DCPACK_PACKAGING_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib ..
 make -j $(nproc) install
