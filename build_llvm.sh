@@ -7,9 +7,9 @@ then
 fi
 
 
-[ -d "${ROCM_ROOT_DIR}/llvm/" ] || git clone --single-branch --recursive -b amd-common https://github.com/RadeonOpenCompute/llvm.git ${ROCM_ROOT_DIR}/llvm
-[ -d "${ROCM_ROOT_DIR}/llvm/tools/clang" ] || git clone --single-branch --recursive -b amd-common https://github.com/RadeonOpenCompute/clang ${ROCM_ROOT_DIR}/llvm/tools/clang
-[ -d "${ROCM_ROOT_DIR}/llvm/tools/lld" ] || git clone --single-branch --recursive -b amd-common https://github.com/RadeonOpenCompute/lld ${ROCM_ROOT_DIR}/llvm/tools/lld
+[ -d "${ROCM_ROOT_DIR}/llvm/" ] || git clone --single-branch --recursive -b roc-hcc-2.9.x https://github.com/RadeonOpenCompute/llvm.git ${ROCM_ROOT_DIR}/llvm
+[ -d "${ROCM_ROOT_DIR}/llvm/tools/clang" ] || git clone --single-branch --recursive -b roc-2.9.x https://github.com/RadeonOpenCompute/clang ${ROCM_ROOT_DIR}/llvm/tools/clang
+[ -d "${ROCM_ROOT_DIR}/llvm/tools/lld" ] || git clone --single-branch --recursive -b roc-hcc-2.9.x https://github.com/RadeonOpenCompute/lld ${ROCM_ROOT_DIR}/llvm/tools/lld
 
 echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 

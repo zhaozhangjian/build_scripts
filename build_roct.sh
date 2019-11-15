@@ -6,7 +6,7 @@ then
     ROCM_ROOT_DIR="$1"
 fi
 
-[ -d "${ROCM_ROOT_DIR}/ROCT-Thunk-Interface/" ] || git clone --single-branch --recursive -b roc-2.6.x https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface.git ${ROCM_ROOT_DIR}/ROCT-Thunk-Interface
+[ -d "${ROCM_ROOT_DIR}/ROCT-Thunk-Interface/" ] || git clone --single-branch --recursive -b roc-2.9.x https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface.git ${ROCM_ROOT_DIR}/ROCT-Thunk-Interface
 
 echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 

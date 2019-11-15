@@ -11,7 +11,7 @@ fi
 echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
 cd ${ROCM_ROOT_DIR}/rocminfo/
-git checkout roc-2.6.0
+git checkout roc-2.9.0
 mkdir -p build && cd build
 export LD_LIBRARY_PATH=${ROCM_ROOT_DIR}/ROCT-Thunk-Interface/build/; cmake -DROCM_DIR=${ROCM_ROOT_DIR}/umd_lib -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib ..
 make install
