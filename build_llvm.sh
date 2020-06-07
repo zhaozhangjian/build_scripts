@@ -7,14 +7,12 @@ then
 fi
 
 
-[ -d "${ROCM_ROOT_DIR}/llvm/" ] || git clone --single-branch --recursive -b amd-common https://github.com/RadeonOpenCompute/llvm.git ${ROCM_ROOT_DIR}/llvm
-[ -d "${ROCM_ROOT_DIR}/llvm/tools/clang" ] || git clone --single-branch --recursive -b amd-common https://github.com/RadeonOpenCompute/clang ${ROCM_ROOT_DIR}/llvm/tools/clang
-[ -d "${ROCM_ROOT_DIR}/llvm/tools/lld" ] || git clone --single-branch --recursive -b amd-common https://github.com/RadeonOpenCompute/lld ${ROCM_ROOT_DIR}/llvm/tools/lld
+[ -d "${ROCM_ROOT_DIR}/llvm-project/" ] || git clone --single-branch --recursive -b rocm-3.5.x git clone git@github.com:RadeonOpenCompute/llvm-project.git ${ROCM_ROOT_DIR}/llvm-project
 
 echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
-cd ${ROCM_ROOT_DIR}/llvm/
+cd ${ROCM_ROOT_DIR}/llvm-project/
 mkdir -p build && cd build
-cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib/llvm -DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" ..
+cmake -DCMAKE_BUILD_TYPE=Debug -DLLVM_ENABLE_PROJECTS="llvm;clang;lld" -DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib/llvm ../llvm
 make -j 8
 make install

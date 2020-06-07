@@ -12,21 +12,6 @@ then
   ./build_rocr.sh "${ROCM_ROOT_DIR}"
 fi
 
-if [ $? -eq 0 ]
-then
-  ./build_hcc.sh "${ROCM_ROOT_DIR}"
-fi
-
-if [ $? -eq 0 ]
-then
-  ./build_comgr.sh "${ROCM_ROOT_DIR}"
-fi
-
-if [ $? -eq 0 ]
-then
-  ./build_hip.sh "${ROCM_ROOT_DIR}"
-fi
-
 if [ $? -eq 0]
 then
   ./build_llvm.sh "${ROCM_ROOT_DIR}"
@@ -40,6 +25,26 @@ fi
 if [ $? -eq 0 ]
 then
   ./build_rocm-cmake.sh "${ROCM_ROOT_DIR}"
+fi
+
+if [ $? -eq 0 ]
+then
+  ./build_comgr.sh "${ROCM_ROOT_DIR}"
+fi
+
+if [ $? -eq 0 ]
+then
+  ./build_opencl.sh "${ROCM_ROOT_DIR}"
+fi
+
+if [ $? -eq 0 ]
+then
+  ./build_rocclr.sh "${ROCM_ROOT_DIR}"
+fi
+
+if [ $? -eq 0 ]
+then
+  ./build_hip.sh "${ROCM_ROOT_DIR}"
 fi
 
 if [ $? -eq 0 ]

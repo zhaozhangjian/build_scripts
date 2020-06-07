@@ -12,8 +12,11 @@ echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
 cd ${ROCM_ROOT_DIR}/HIP/
 mkdir -p build && cd build
-export LD_LIBRARY_PATH=${ROCM_ROOT_DIR}/umd_lib/lib/; cmake -DCOMPILE_HIP_ATP_MARKER=1 -DUSE_PROF_API=1 -DCMAKE_BUILD_TYPE=Debug -DHCC_HOME=${ROCM_ROOT_DIR}/hcc/build/ -DHSA_PATH=${ROCM_ROOT_DIR}/umd_lib/hsa -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib ..
-#export LD_LIBRARY_PATH=${ROCM_ROOT_DIR}/umd_lib/lib/; cmake -DCMAKE_BUILD_TYPE=Debug -DHCC_HOME=${ROCM_ROOT_DIR}/hcc/build/ -DHSA_PATH=${ROCM_ROOT_DIR}/umd_lib/hsa -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib .. #-DHIP_COMPILER=clang
-#cmake -DCOMPILE_HIP_ATP_MARKER=1 -DUSE_PROF_API=1 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib .. #-DHIP_COMPILER=clang
-#cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib .. #-DHIP_COMPILER=clang
-make -j install
+export LD_LIBRARY_PATH=${ROCM_ROOT_DIR}/umd_lib/lib/;
+cmake -DUSE_PROF_API=1 -DCMAKE_BUILD_TYPE=Debug -DHIP_COMPILER=clang -DHIP_PLATFORM=rocclr \
+    -DROCclr_DIR=${ROCM_ROOT_DIR}/ROCclr -DLIBROCclr_STATIC_DIR=${ROCM_ROOT_DIR}/ROCclr/build \
+    -DHSA_PATH=${ROCM_ROOT_DIR}/umd_lib/hsa -DROCM_PATH=${ROCM_ROOT_DIR}/umd_lib \
+    -Damd_comgr_DIR=${ROCM_ROOT_DIR}/umd_lib/lib/cmake/amd_comgr \
+    -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib ..
+make -j $(nproc)
+make install

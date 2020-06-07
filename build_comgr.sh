@@ -12,5 +12,5 @@ echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
 cd ${ROCM_ROOT_DIR}/ROCm-CompilerSupport/lib/comgr
 mkdir -p build && cd build
-cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH="${ROCM_ROOT_DIR}/hcc/build/lib/cmake" -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib ..
+cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH="${ROCM_ROOT_DIR}/umd_lib/rocdl;${ROCM_ROOT_DIR}/umd_lib/llvm;${ROCM_ROOT_DIR}/umd_lib/share/rocm/cmake/" -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib ..
 PATH=${ROCM_ROOT_DIR}/umd_lib/bin:$PATH make -j $(nproc) install
