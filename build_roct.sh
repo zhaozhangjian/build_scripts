@@ -11,7 +11,7 @@ fi
 echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
 cd ${ROCM_ROOT_DIR}/ROCT-Thunk-Interface/
-git checkout roc-3.1.x
+git checkout roc-3.3.x
 
 mkdir -p build && cd build
 cmake ../ -DCMAKE_BUILD_TYPE="Debug" -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib -DCPACK_PACKAGING_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib

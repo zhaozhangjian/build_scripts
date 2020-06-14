@@ -11,7 +11,7 @@ fi
 echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
 cd ${ROCM_ROOT_DIR}/ROCR-Runtime/
-git checkout rocm-3.1.x
+git checkout rocm-3.3.x
 
 cd src
 mkdir -p build && cd build

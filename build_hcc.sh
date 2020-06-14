@@ -11,7 +11,7 @@ fi
 echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
 cd ${ROCM_ROOT_DIR}/hcc/
-git checkout roc-3.1.x
+git checkout roc-3.3.x
 git submodule update --recursive --init
 
 mkdir -p build && cd build

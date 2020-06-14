@@ -1,4 +1,6 @@
+# modify ROCM_ROOT_DIR as you wish
 export ROCM_ROOT_DIR=/data/rocm
+
 export ROCM_PATH=${ROCM_ROOT_DIR}/umd_lib/
 export HSA_PATH=${ROCM_ROOT_DIR}/umd_lib/hsa
 export HCC_HOME=${ROCM_ROOT_DIR}/umd_lib/
