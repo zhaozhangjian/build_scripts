@@ -12,7 +12,8 @@ fi
 echo "Build output to $ROCM_ROOT_DIR/umd_lib"
 
 cd ${ROCM_ROOT_DIR}/ROCm-Device-Libs/
-git checkout master
+git checkout rocm-3.5.x
+
 mkdir -p build && cd build
 CC=${ROCM_ROOT_DIR}/umd_lib/llvm/bin/clang cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib/rocdl -DLLVM_DIR=${ROCM_ROOT_DIR}/umd_lib/llvm/ ..
-make -j install
+sudo make -j $(nproc) install

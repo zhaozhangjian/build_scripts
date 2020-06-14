@@ -14,4 +14,4 @@ cd ${ROCM_ROOT_DIR}/rocminfo/
 git checkout master
 mkdir -p build && cd build
 export LD_LIBRARY_PATH=${ROCM_ROOT_DIR}/ROCT-Thunk-Interface/build/; cmake -DROCM_DIR=${ROCM_ROOT_DIR}/umd_lib -DCMAKE_INSTALL_PREFIX=${ROCM_ROOT_DIR}/umd_lib ..
-make install
+sudo make install

@@ -1,5 +1,7 @@
-export ROCM_ROOT_DIR=/home/zjzhao/Documents/ROCm
+export ROCM_ROOT_DIR=/data/rocm
+export ROCM_PATH=${ROCM_ROOT_DIR}/umd_lib/
 export HSA_PATH=${ROCM_ROOT_DIR}/umd_lib/hsa
+export HCC_HOME=${ROCM_ROOT_DIR}/umd_lib/
 export HIP_PATH=${ROCM_ROOT_DIR}/umd_lib/
 export HIP_CLANG_PATH=${ROCM_ROOT_DIR}/umd_lib/llvm/bin
 export DEVICE_LIB_PATH=${ROCM_ROOT_DIR}/umd_lib/rocdl/lib
